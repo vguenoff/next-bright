@@ -1,112 +1,50 @@
-import React from 'react';
-import { Code } from 'bright';
+import { Code } from 'bright'
+
+import RevealContent from './reveal-content'
 
 function Home() {
-  const [
-    isFirstSnippetShown,
-    setIsFirstSnippetShown,
-  ] = React.useState(false);
-  const [
-    isSecondSnippetShown,
-    setIsSecondSnippetShown,
-  ] = React.useState(false);
-  const [
-    isThirdSnippetShown,
-    setIsThirdSnippetShown,
-  ] = React.useState(false);
-
   return (
     <main>
       <h1>Introduction to Python</h1>
       <h2>Variables and Basic Data Types</h2>
       <p>
-        Python is a high-level, interpreted
-        programming language. In Python, you don't
-        need to specify the data type of a
-        variable when you declare it. Python
-        automatically determines the data type
-        based on the value you assign.
+        Python is a high-level, interpreted programming language. In Python, you
+        don't need to specify the data type of a variable when you declare it.
+        Python automatically determines the data type based on the value you
+        assign.
       </p>
-
-      {isFirstSnippetShown ? (
-        <Code
-          className="code-snippet"
-          theme="dracula"
-          lang="py"
-        >
+      <RevealContent>
+        <Code className="code-snippet" theme="dracula" lang="py">
           {FIRST_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsFirstSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </RevealContent>
 
-      <h2>
-        Control Flow: Conditionals and Loops
-      </h2>
+      <h2>Control Flow: Conditionals and Loops</h2>
       <p>
-        Python has standard control flow
-        structures like if statements, for and
+        Python has standard control flow structures like if statements, for and
         while loops.
       </p>
 
-      {isSecondSnippetShown ? (
-        <Code
-          className="code-snippet"
-          theme="dracula"
-          lang="py"
-        >
+      <RevealContent>
+        <Code className="code-snippet" theme="dracula" lang="py">
           {SECOND_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsSecondSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </RevealContent>
 
       <h2>Functions and Basic Data Structures</h2>
 
       <p>
-        In Python, you can define your own
-        functions using the def keyword. Python
-        also has built-in data structures like
-        lists and dictionaries.
+        In Python, you can define your own functions using the def keyword.
+        Python also has built-in data structures like lists and dictionaries.
       </p>
 
-      {isThirdSnippetShown ? (
-        <Code
-          className="code-snippet"
-          theme="dracula"
-          lang="py"
-        >
+      <RevealContent>
+        <Code className="code-snippet" theme="dracula" lang="py">
           {THIRD_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsThirdSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </RevealContent>
     </main>
-  );
+  )
 }
 
 const FIRST_SNIPPET = `\
@@ -119,7 +57,7 @@ height = 5.9  # This is a floating point number
 print("Name:", name)
 print("Age:", age)
 print("Height:", height)\
-`;
+`
 const SECOND_SNIPPET = `\
 # If statement
 if age > 18:
@@ -136,7 +74,7 @@ count = 0
 while count < 5:
     print(count)
     count += 1  # This is the same as 'count = count + 1'\
-`;
+`
 const THIRD_SNIPPET = `\
 # Define a function
 def greet(name):
@@ -154,6 +92,6 @@ for fruit in fruits:
 person = {"name": "John Doe", "age": 30, "height": 5.9}
 for key, value in person.items():
     print(key, ":", value)\
-`;
+`
 
-export default Home;
+export default Home
